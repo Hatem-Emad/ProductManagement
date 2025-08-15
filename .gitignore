@@ -1,0 +1,26 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Product/.vs
+/Product/Product.API/.vs
+/Product/Product.API/bin/Debug/net8.0
+/Product/Product.API/obj
+/Product/Product.BL/bin/Debug/net8.0
+/Product/Product.BL/obj
+/Product/Product.DAL/bin/Debug/net8.0
+/Product/Product.DAL/obj
+/ProductFront/Product-app/.vscode
+/ProductFront/Product-app/src/environments/environment.ts
+/ProductFront/Product-app/.gitignore
+/ProductFront/Product-app/.editorconfig
+/ProductFront/Product-app/angular.json
+/ProductFront/Product-app/package-lock.json
+/ProductFront/Product-app/package.json
+/ProductFront/Product-app/proxy.conf.json
+/ProductFront/Product-app/tsconfig.app.json
+/ProductFront/Product-app/tsconfig.json
+/ProductFront/Product-app/tsconfig.spec.json
+/Product/Product.API/appsettings.Development.json
+/Product/Product.API/appsettings.json
+/Product/Product.API/Properties

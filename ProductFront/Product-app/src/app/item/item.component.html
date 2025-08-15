@@ -1,0 +1,56 @@
+<div class="item-container">
+  <h2>Items</h2>
+
+  <div class="actions">
+    <button class="btn btn-primary" (click)="showAddForm()">Add New Item</button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="items && items.length > 0">
+    <h3>Found {{ items.length }} items:</h3>
+    <ol>
+      <li *ngFor="let item of items">
+        <div class="item-content">
+          <div class="item-info">
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.description }}</p>
+            <small>Category ID: {{ item.categoryId }}</small>
+          </div>
+          <div class="item-actions">
+            <button class="btn btn-edit" (click)="editItem(item)">Edit</button>
+            <button class="btn btn-delete" (click)="deleteItem(item.id)">Delete</button>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+  
+  <div *ngIf="!errorMessage && (!items || items.length === 0)" style="color: #666; text-align: center; padding: 20px;">
+    No items found.
+  </div>
+
+  <div *ngIf="showForm" class="modal-overlay">
+    <div class="modal">
+      <h3>{{ editingItem ? 'Edit Item' : 'Add New Item' }}</h3>
+      <form (ngSubmit)="saveItem()" #itemForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" [(ngModel)]="formData.description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="categoryId">Category ID:</label>
+          <input type="number" id="categoryId" name="categoryId" [(ngModel)]="formData.categoryId" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">{{ editingItem ? 'Update' : 'Add' }}</button>
+          <button type="button" class="btn btn-secondary" (click)="cancelForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
